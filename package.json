@@ -1,0 +1,98 @@
+{
+  "name": "apibench-vscode",
+  "displayName": "APIBench",
+  "description": "Run API benchmarks directly from VS Code with visual results",
+  "version": "1.0.0",
+  "publisher": "ranjan98",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "keywords": [
+    "api",
+    "benchmark",
+    "performance",
+    "testing",
+    "http"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "apibench.runBenchmark",
+        "title": "APIBench: Run Benchmark"
+      },
+      {
+        "command": "apibench.quickTest",
+        "title": "APIBench: Quick Test URL"
+      },
+      {
+        "command": "apibench.showHistory",
+        "title": "APIBench: Show History"
+      },
+      {
+        "command": "apibench.compareResults",
+        "title": "APIBench: Compare Results"
+      }
+    ],
+    "configuration": {
+      "title": "APIBench",
+      "properties": {
+        "apibench.defaultDuration": {
+          "type": "number",
+          "default": 10,
+          "description": "Default benchmark duration in seconds"
+        },
+        "apibench.defaultConnections": {
+          "type": "number",
+          "default": 10,
+          "description": "Default number of concurrent connections"
+        },
+        "apibench.saveHistory": {
+          "type": "boolean",
+          "default": true,
+          "description": "Save benchmark history"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "apibench",
+          "title": "APIBench",
+          "icon": "$(zap)"
+        }
+      ]
+    },
+    "views": {
+      "apibench": [
+        {
+          "id": "apibench.history",
+          "name": "Benchmark History"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranjan98/apibench-vscode"
+  },
+  "author": "ranjan98",
+  "license": "MIT"
+}
